@@ -70,13 +70,12 @@ namespace DesignPattern
 
 
             /* ----------Singleton----------*/
-            // Without sync the threads
+            /* ----- Without sync the threads ----- */
             //Singleton s1 = Singleton.getInstance();
             //Console.WriteLine(s1);
             //s1.query("SELECT * FROM library");
 
-            // Width sync the threads
-
+            /* ----- Width sync the threads ----- */
             //    Console.WriteLine(
             //        "{0}\n{1}\n\n{2}\n",
             //        "If you see the same value, then singleton was reused (yay!)",
@@ -99,11 +98,7 @@ namespace DesignPattern
             //    TestSingleton("PostgreSQL");
 
 
-
-            /* ----------Singleton----------*/
-
-
-
+            /* ----------Adapter----------*/
         }
 
         public static void TestSingleton(string value)

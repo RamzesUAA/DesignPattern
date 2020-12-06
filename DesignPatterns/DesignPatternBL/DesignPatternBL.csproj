@@ -4,4 +4,12 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="BehavioralDesignPatterns\" />
+    <Folder Include="KISS\" />
+    <Folder Include="DRY\" />
+    <Folder Include="YAGNI\" />
+    <Folder Include="StructuralDesignPatterns\" />
+  </ItemGroup>
+
 </Project>
