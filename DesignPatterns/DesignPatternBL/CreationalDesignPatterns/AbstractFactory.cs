@@ -10,7 +10,8 @@ namespace DesignPatternBL.CreationalDesignPatterns
         ISofa CreateSofa();
 
     }
-
+    //--------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------------
     public class VictorianFactory : IFurnitureFactory
     {
         public IChair CreateChair()
@@ -42,7 +43,8 @@ namespace DesignPatternBL.CreationalDesignPatterns
             return "Modern Factory";
         }
     }
-
+    //--------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------------
     public interface IChair
     {
         void hasLegs();
@@ -57,7 +59,8 @@ namespace DesignPatternBL.CreationalDesignPatterns
         void lieOn();
     }
 
-
+    //--------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------------
     class VictorianChair :IChair
     {
         public void hasLegs()
@@ -82,7 +85,8 @@ namespace DesignPatternBL.CreationalDesignPatterns
             Console.WriteLine("You can sit on the modern chair");
         }
     }
-
+    //--------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------------
 
     class VictorianSofa : ISofa
     {

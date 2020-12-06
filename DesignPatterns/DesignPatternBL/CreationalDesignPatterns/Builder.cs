@@ -13,6 +13,8 @@ namespace DesignPatternBL.CreationalDesignPatterns
         void BuildRoof(int counter);
         void BuildGarage(bool buildGarage);
     }
+    //--------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------------
     public class House{
         private List<object> wallList = new List<object>();
         private List<object> windowList = new List<object>();
@@ -48,6 +50,8 @@ namespace DesignPatternBL.CreationalDesignPatterns
         }
 
     }
+    //--------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------------
     public class HouseBuilder : IHouseBuilder
     {
         private House _houses = new House();
@@ -105,13 +109,15 @@ namespace DesignPatternBL.CreationalDesignPatterns
         }
     }
 
+    //--------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------------
     public class Director
     {
         private IHouseBuilder _builder;
 
         public IHouseBuilder Builder
         {
-            set { _builder = value; }
+            set => _builder = value;
         }
 
         public void buildHugeHouse()
