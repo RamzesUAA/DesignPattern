@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Threading;
+using DesignPatternBL.BehavioralDesignPatterns.Mediator;
+using DesignPatternBL.BehavioralDesignPatterns.Memento;
 using DesignPatternBL.CreationalDesignPatterns;
 namespace DesignPattern
 {
@@ -98,7 +100,39 @@ namespace DesignPattern
             //    TestSingleton("PostgreSQL");
 
 
-            /* ----------Adapter----------*/
+            /* ----------Memento----------*/
+            //Game battlefield = new Game("Mission #1: Destroy the Russian oil station");
+            //GameSaving gameTracker = new GameSaving(battlefield);
+
+            //gameTracker.Backup();
+            //battlefield.PlayGame("Mission #2: Kill Russian terrorist Sergey Medvedev");
+
+            //gameTracker.Backup();
+            //battlefield.PlayGame("Final mission: Ambush in Nigeria");
+
+            //Console.WriteLine();
+            //gameTracker.ShowHistory();
+
+            //Console.WriteLine("\nRollback!\n");
+            //gameTracker.Undo();
+
+            //Console.WriteLine("\nRollback!\n");
+            //gameTracker.Undo();
+
+
+
+            /* ----------Mediator----------*/
+            // The client code.
+            HeadmanOfTheGroup mediator = new HeadmanOfTheGroup();
+            Colleague student = new Student(mediator);
+            Colleague Deanery = new Deanery(mediator);
+            Colleague Professor = new Professor(mediator);
+            mediator.Student = student;
+            mediator.Deanery = Deanery;
+            mediator.Professor = Professor;
+            student.Send("Есть заказ, надо сделать программу");
+            Deanery.Send("Программа готова, надо протестировать");
+            Professor.Send("Программа протестирована и готова к продаже");
         }
 
         public static void TestSingleton(string value)
