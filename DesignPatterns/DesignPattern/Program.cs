@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.Threading;
 using DesignPatternBL.BehavioralDesignPatterns.Mediator;
 using DesignPatternBL.BehavioralDesignPatterns.Memento;
@@ -121,18 +122,49 @@ namespace DesignPattern
 
 
 
-            /* ----------Mediator----------*/
-            // The client code.
-            HeadmanOfTheGroup mediator = new HeadmanOfTheGroup();
-            Colleague student = new Student(mediator);
-            Colleague Deanery = new Deanery(mediator);
-            Colleague Professor = new Professor(mediator);
-            mediator.Student = student;
-            mediator.Deanery = Deanery;
-            mediator.Professor = Professor;
-            student.Send("Есть заказ, надо сделать программу");
-            Deanery.Send("Программа готова, надо протестировать");
-            Professor.Send("Программа протестирована и готова к продаже");
+            ///* ----------Mediator----------*/
+            //// The client code.
+            //HeadmanOfTheGroup mediator = new HeadmanOfTheGroup();
+            //Colleague student = new Student(mediator);
+            //Colleague Deanery = new Deanery(mediator);
+            //Colleague Professor = new Professor(mediator);
+            //mediator.Student = student;
+            //mediator.Deanery = Deanery;
+            //mediator.Professor = Professor;
+            //student.Send("Есть заказ, надо сделать программу");
+            //Deanery.Send("Программа готова, надо протестировать");
+            //Professor.Send("Программа протестирована и готова к продаже");
+
+
+            Collection collection = new Collection();
+            collection.InitializeItems(new Object[,]
+            {
+                {1, 2, 3}, {4, 5, 6}, {7, 8, 9}
+            });
+            var iterator = collection.CreateIterator();
+            iterator.Step = 1;
+            Console.WriteLine("Iterating over collection:");
+            for (var item = iterator.First();
+                !iterator.IsDone;
+                item = iterator.Next())
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.WriteLine("Reverse Iterating over collection:");
+            var reverseIterator = collection.CreateReverseIterator();
+            reverseIterator.Step = 1;
+            for (var item = reverseIterator.First();
+                !reverseIterator.IsDone;
+                item = reverseIterator.Next())
+            {
+                Console.WriteLine(item);
+            }
+
+            // Wait for user
+            Console.ReadKey();
+
+
         }
 
         public static void TestSingleton(string value)
