@@ -34,7 +34,6 @@ namespace DesignPatternBL.BehavioralDesignPatterns.Mediator
             Console.WriteLine("Message to the student: " + message);
         }
     }
-    // класс программиста
     public class Deanery : Colleague
     {
         public Deanery(Mediator mediator)
@@ -46,7 +45,6 @@ namespace DesignPatternBL.BehavioralDesignPatterns.Mediator
             Console.WriteLine("Message to the deanery: " + message);
         }
     }
-    // класс тестера
     public class Professor : Colleague
     {
         public Professor(Mediator mediator)

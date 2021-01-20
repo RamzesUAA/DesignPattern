@@ -35,7 +35,7 @@ namespace DesignPatternBL.BehavioralDesignPatterns.Memento
             }
 
             this._gameState = memento.GetState();
-            Console.Write($"Notification: State of the game has changed to: {_gameState}");
+            Console.Write($"Notification: Time of the game has changed to: {_gameState}");
         }
     }
 }
