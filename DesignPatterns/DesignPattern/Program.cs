@@ -168,21 +168,21 @@ namespace DesignPattern
 
 
 
-            /* ----------Observer----------*/
-            var subject = new Alarm();
-            var user1 = new User1();
-            subject.SetClock(user1);
+            ////* ----------Observer----------*/
+            //var subject = new Alarm();
+            //var user1 = new User1();
+            //subject.SetClock(user1);
 
-            var user2 = new User2();
-            subject.SetClock(user2);
+            //var user2 = new User2();
+            //subject.SetClock(user2);
 
-            var user3 = new User3();
-            subject.SetClock(user3);
+            //var user3 = new User3();
+            //subject.SetClock(user3);
 
-            subject.SomeBusinessLogic();
+            //subject.SomeBusinessLogic();
 
-            subject.CancelClock(user1);
-            subject.CancelClock(user2);
+            //subject.CancelClock(user1);
+            //subject.CancelClock(user2);
             
 
         }
