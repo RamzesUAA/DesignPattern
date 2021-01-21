@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading;
+using ConsoleApp1;
 using DesignPatternBL.BehavioralDesignPatterns.Mediator;
 using DesignPatternBL.BehavioralDesignPatterns.Memento;
 using DesignPatternBL.BehavioralDesignPatterns.Observer;
+using DesignPatternBL.BehavioralDesignPatterns.State;
+using DesignPatternBL.BehavioralDesignPatterns.TemplateMethod;
 using DesignPatternBL.CreationalDesignPatterns;
 namespace DesignPattern
 {
@@ -123,6 +127,8 @@ namespace DesignPattern
 
 
 
+
+
             /* ----------Mediator----------*/
             // The client code.
             //HeadmanOfTheGroup mediator = new HeadmanOfTheGroup();
@@ -139,7 +145,9 @@ namespace DesignPattern
 
 
 
-            ///* ----------Iterator----------*/
+
+
+            //* ----------Iterator----------*/
             //Collection collection = new Collection();
             //collection.InitializeItems(new Object[,]
             //{
@@ -183,8 +191,37 @@ namespace DesignPattern
 
             //subject.CancelClock(user1);
             //subject.CancelClock(user2);
-            
 
+
+
+
+            //* ----------State----------*/
+            //ATM atm = new ATM(new Disabled());
+            //atm.Request2();
+            //atm.Request2();
+            //atm.Request1();
+
+
+
+
+            //* ----------TemplateMethod----------*/
+            Player.PlayerGame(new Casino());
+            Console.WriteLine("------------------------");
+            Player.PlayerGame(new Monopoly());
+
+
+
+            //* ----------Strategy----------*/
+            var list = new List<int>();
+            list.Add(3);
+            list.Add(8);
+            list.Add(1);
+            list.Add(5);
+            list.Add(9);
+            var worker = new Context();
+            worker.Iterate(new Algorithm1(), list);
+            worker.Iterate(new Algorithm2(), list);
+            Console.ReadKey();
         }
 
         public static void TestSingleton(string value)
