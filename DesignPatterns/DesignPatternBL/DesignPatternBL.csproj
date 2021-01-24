@@ -1,14 +1,15 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="BehavioralDesignPatterns\Command\" />
+    <Folder Include="BehavioralDesignPatterns\Visitor\" />
     <Folder Include="KISS\" />
     <Folder Include="DRY\" />
     <Folder Include="YAGNI\" />
-    <Folder Include="StructuralDesignPatterns\" />
   </ItemGroup>
 
 </Project>

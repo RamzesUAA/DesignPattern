@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading;
+using Adapter;
 using ConsoleApp1;
 using DesignPatternBL.BehavioralDesignPatterns.Mediator;
 using DesignPatternBL.BehavioralDesignPatterns.Memento;
@@ -9,6 +10,8 @@ using DesignPatternBL.BehavioralDesignPatterns.Observer;
 using DesignPatternBL.BehavioralDesignPatterns.State;
 using DesignPatternBL.BehavioralDesignPatterns.TemplateMethod;
 using DesignPatternBL.CreationalDesignPatterns;
+using Facade;
+
 namespace DesignPattern
 {
     class Program
@@ -211,17 +214,42 @@ namespace DesignPattern
 
 
 
-            //* ----------Strategy----------*/
-            var list = new List<int>();
-            list.Add(3);
-            list.Add(8);
-            list.Add(1);
-            list.Add(5);
-            list.Add(9);
-            var worker = new Context();
-            worker.Iterate(new Algorithm1(), list);
-            worker.Iterate(new Algorithm2(), list);
-            Console.ReadKey();
+            ////* ----------Strategy----------*/
+            //var list = new List<int>();
+            //list.Add(3);
+            //list.Add(8);
+            //list.Add(1);
+            //list.Add(5);
+            //list.Add(9);
+            //var worker = new Context();
+            //worker.Iterate(new Algorithm1(), list);
+            //worker.Iterate(new Algorithm2(), list);
+            //Console.ReadKey();
+
+
+
+
+
+
+            //* ----------Adapter----------*/
+            Laptop laptop = new USBPort(new MicroUSB("New information"));
+            laptop.GetData();
+
+            Console.WriteLine($"Data from laptop: {laptop.DatafromMicro}");
+
+
+
+
+
+            //* ----------Facade----------*/
+            var washMashine = new Washmashine(new Washing(), new Squeeze());
+
+            Console.WriteLine("Washing of cotton:");
+            washMashine.CottonWashing();
+            Console.WriteLine();
+
+            Console.WriteLine("Washing of synthetics:");
+            washMashine.SyntheticsWashing();
         }
 
         public static void TestSingleton(string value)
@@ -248,5 +276,7 @@ namespace DesignPattern
             sofa.lieOn();
             sofa.sitOn();
         }
+
+
     }
 }
