@@ -10,7 +10,9 @@ using DesignPatternBL.BehavioralDesignPatterns.Observer;
 using DesignPatternBL.BehavioralDesignPatterns.State;
 using DesignPatternBL.BehavioralDesignPatterns.TemplateMethod;
 using DesignPatternBL.CreationalDesignPatterns;
+using DesignPatternBL.StructuralDesignPatterns.Bridge;
 using Facade;
+using Flyweight;
 
 namespace DesignPattern
 {
@@ -207,10 +209,10 @@ namespace DesignPattern
 
 
 
-            //* ----------TemplateMethod----------*/
-            Player.PlayerGame(new Casino());
-            Console.WriteLine("------------------------");
-            Player.PlayerGame(new Monopoly());
+            ////* ----------TemplateMethod----------*/
+            //Player.PlayerGame(new Casino());
+            //Console.WriteLine("------------------------");
+            //Player.PlayerGame(new Monopoly());
 
 
 
@@ -231,25 +233,60 @@ namespace DesignPattern
 
 
 
-            //* ----------Adapter----------*/
-            Laptop laptop = new USBPort(new MicroUSB("New information"));
-            laptop.GetData();
+            ////* ----------Adapter----------*/
+            //Laptop laptop = new USBPort(new MicroUSB("New information"));
+            //laptop.GetData();
 
-            Console.WriteLine($"Data from laptop: {laptop.DatafromMicro}");
-
-
+            //Console.WriteLine($"Data from laptop: {laptop.DatafromMicro}");
 
 
 
-            //* ----------Facade----------*/
-            var washMashine = new Washmashine(new Washing(), new Squeeze());
 
-            Console.WriteLine("Washing of cotton:");
-            washMashine.CottonWashing();
-            Console.WriteLine();
 
-            Console.WriteLine("Washing of synthetics:");
-            washMashine.SyntheticsWashing();
+            ////* ----------Facade----------*/
+            //var washMashine = new Washmashine(new Washing(), new Squeeze());
+
+            //Console.WriteLine("Washing of cotton:");
+            //washMashine.CottonWashing();
+            //Console.WriteLine();
+
+            //Console.WriteLine("Washing of synthetics:");
+            //washMashine.SyntheticsWashing();
+
+
+            /* ----------Bridge----------*/
+            ThreeDPrinter printer = new Canon(new Solid());
+            printer.Print();
+            printer.GetDetail();
+            printer.Material = new Liquid();
+            printer.Print();
+            printer.GetDetail();
+
+
+
+
+            /* ----------Flyweight----------*/
+            Console.BackgroundColor = ConsoleColor.DarkBlue;
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.White;
+
+            decimal power = (decimal)0.1;
+            AntHill antHill = new AntHill();
+            for (int i = 0; i < 5; i++)
+            {
+                Ant blackAnt = antHill.GetAnt("Black");
+                if (blackAnt != null)
+                    blackAnt.Exist((double)power);
+                power += (decimal)0.1;
+            }
+
+            for (int i = 0; i < 5; i++)
+            {
+                Ant redAnt = antHill.GetAnt("Red");
+                if (redAnt != null)
+                    redAnt.Exist((double)power);
+                power += (decimal)0.1;
+            }
         }
 
         public static void TestSingleton(string value)

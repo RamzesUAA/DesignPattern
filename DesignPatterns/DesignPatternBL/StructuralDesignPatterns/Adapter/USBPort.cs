@@ -1,5 +1,4 @@
-﻿
-namespace Adapter
+﻿namespace Adapter
 {
     public class USBPort : Laptop
     {
