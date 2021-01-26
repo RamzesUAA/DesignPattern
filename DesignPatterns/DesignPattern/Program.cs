@@ -11,6 +11,7 @@ using DesignPatternBL.BehavioralDesignPatterns.State;
 using DesignPatternBL.BehavioralDesignPatterns.TemplateMethod;
 using DesignPatternBL.CreationalDesignPatterns;
 using DesignPatternBL.StructuralDesignPatterns.Bridge;
+using DesignPatternBL.StructuralDesignPatterns.Decorator;
 using Facade;
 using Flyweight;
 
@@ -254,39 +255,93 @@ namespace DesignPattern
             //washMashine.SyntheticsWashing();
 
 
-            /* ----------Bridge----------*/
-            ThreeDPrinter printer = new Canon(new Solid());
-            printer.Print();
-            printer.GetDetail();
-            printer.Material = new Liquid();
-            printer.Print();
-            printer.GetDetail();
+            ///* ----------Bridge----------*/
+            //ThreeDPrinter printer = new Canon(new Solid());
+            //printer.Print();
+            //printer.GetDetail();
+            //printer.Material = new Liquid();
+            //printer.Print();
+            //printer.GetDetail();
 
 
 
 
-            /* ----------Flyweight----------*/
-            Console.BackgroundColor = ConsoleColor.DarkBlue;
-            Console.Clear();
-            Console.ForegroundColor = ConsoleColor.White;
+            ///* ----------Flyweight----------*/
+            //Console.BackgroundColor = ConsoleColor.DarkBlue;
+            //Console.Clear();
+            //Console.ForegroundColor = ConsoleColor.White;
 
-            decimal power = (decimal)0.1;
-            AntHill antHill = new AntHill();
-            for (int i = 0; i < 5; i++)
-            {
-                Ant blackAnt = antHill.GetAnt("Black");
-                if (blackAnt != null)
-                    blackAnt.Exist((double)power);
-                power += (decimal)0.1;
-            }
+            //decimal power = (decimal)0.1;
+            //AntHill antHill = new AntHill();
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    Ant blackAnt = antHill.GetAnt("Black");
+            //    if (blackAnt != null)
+            //        blackAnt.Exist((double)power);
+            //    power += (decimal)0.1;
+            //}
 
-            for (int i = 0; i < 5; i++)
-            {
-                Ant redAnt = antHill.GetAnt("Red");
-                if (redAnt != null)
-                    redAnt.Exist((double)power);
-                power += (decimal)0.1;
-            }
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    Ant redAnt = antHill.GetAnt("Red");
+            //    if (redAnt != null)
+            //        redAnt.Exist((double)power);
+            //    power += (decimal)0.1;
+            //}
+
+
+            ////* ----------Proxy----------*/
+            //Client client = new Client();
+
+            //Console.WriteLine("Client: Executing the client code with a cash:");
+            //Cash realSubject = new Cash();
+            //client.ClientCode(realSubject);
+
+            //Console.WriteLine();
+
+            //Console.WriteLine("Client: Executing the same client code with a credit card:");
+            //CreditCard proxy = new CreditCard(realSubject);
+            //client.ClientCode(proxy);
+
+
+
+
+            ////* ----------Composite----------*/
+            //Client client = new Client();
+
+            //Soldier soldier = new Soldier();
+            //Console.WriteLine("Client: I get a simple body:");
+            //client.ClientCode(soldier);
+
+            //Composite army = new Composite();
+            //Composite division1 = new Composite();
+            //division1.Add(new Soldier());
+            //division1.Add(new Soldier());
+            //Composite division2 = new Composite();
+            //division2.Add(new Soldier());
+            //army.Add(division1);
+            //army.Add(division2);
+            //Console.WriteLine("Client: Now I've got a composite army:");
+            //client.ClientCode(army);
+
+            //Console.Write("Client: I don't need to check the components classes even when managing the army:\n");
+            //client.ClientCode2(army, soldier);
+
+
+
+
+            ////* ----------Decorator----------*/
+            Client client = new Client();
+
+            var simple = new ConcreteBody();
+            Console.WriteLine("Client: I get a simple body:");
+            client.ClientCode(simple);
+            Console.WriteLine();
+
+            Jacket decorator1 = new Jacket(simple);
+            Сloak decorator2 = new Сloak(decorator1);
+            Console.WriteLine("Client: Now I've got a decorated body:");
+            client.ClientCode(decorator2);
         }
 
         public static void TestSingleton(string value)

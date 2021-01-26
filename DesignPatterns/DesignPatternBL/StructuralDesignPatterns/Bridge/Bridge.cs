@@ -17,8 +17,6 @@ namespace DesignPatternBL.StructuralDesignPatterns.Bridge
         {
             Console.WriteLine("Used solid material");
         }
-
-      
     }
 
     public class Liquid : IMaterial
